@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge SKUs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Merge SKUs</h1>
+            <p>Upload your CSV file to merge SKUs in GoodDay</p>
+        </div>
+        
+        <div class="content">
+            <div class="upload-section" id="uploadSection">
+                <div class="upload-icon">📁</div>
+                <h3>Drop your CSV file here or click to browse</h3>
+                <p>Expected format: sku, skuToReplace, retainSku columns</p>
+                <input type="file" id="fileInput" class="file-input" accept=".csv" />
+                <div class="upload-buttons">
+                    <button class="upload-btn" onclick="document.getElementById('fileInput').click()">
+                        Choose CSV File
+                    </button>
+                    <button class="sample-btn" onclick="downloadSampleFile()">
+                        📥 Download Sample CSV
+                    </button>
+                </div>
+                <div class="file-info" id="fileInfo"></div>
+            </div>
+
+            <div class="api-key-section">
+                <h3>🔑 Merchant Key</h3>
+                <div class="api-key-input-group">
+                    <input 
+                        type="password" 
+                        id="apiKeyInput" 
+                        class="api-key-input" 
+                        placeholder="Enter your Merchant Key here..."
+                        autocomplete="off"
+                    />
+                    <div id="apiKeyStatus" class="api-key-status empty">No Key</div>
+                </div>
+                <p style="margin-top: 10px; font-size: 12px; color: #6c757d;">
+                    Your API key is stored locally in this session only and never sent to external servers.
+                </p>
+            </div>
+
+            <div class="output-section" id="outputSection" style="display: block;">
+                <div class="output-header">
+                    <h2>Transformed JSON Output</h2>
+                    <button class="copy-btn" id="copyBtn" onclick="copyToClipboard()">Copy JSON</button>
+                    <button class="copy-btn" id="sendApiBtn" onclick="sendToAPI()" style="background: #3b82f6; margin-left: 10px;" disabled>Merge SKUs</button>
+                </div>
+                <div class="force-option">
+                    <label class="force-checkbox-label">
+                        <input type="checkbox" id="forceCheckbox" />
+                        <span class="checkmark"></span>
+                        Force merge (override related records check)
+                    </label>
+                </div>
+                <textarea class="json-output" id="jsonOutput" readonly placeholder="JSON output will appear here..."></textarea>
+                <div class="api-response-section" id="apiResponseSection" style="display: none;">
+                    <div class="output-header">
+                        <h3>API Response</h3>
+                        <button class="copy-btn" id="copyResponseBtn" onclick="copyApiResponse()" style="background: #10b981;">Copy Response</button>
+                    </div>
+                    <textarea class="api-response" id="apiResponse" readonly placeholder="API response will appear here..."></textarea>
+                </div>
+            </div>
+
+            <div id="errorMessage" class="error hidden"></div>
+            <div id="successMessage" class="success hidden"></div>
+        </div>
+    </div>
+
+    <script src="script.js?v=1756834500"></script>
+</body>
+</html>
