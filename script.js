@@ -291,8 +291,8 @@ async function sendToAPI() {
         sendApiBtn.disabled = true;
         sendApiBtn.style.background = '#6c757d';
         
-        // Make the API call to our local server's /move endpoint
-        const response = await fetch('http://localhost:3001/move', {
+        // Make the API call to our server's /move endpoint
+        const response = await fetch('/move', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

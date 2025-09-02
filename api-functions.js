@@ -41,8 +41,8 @@ async function sendToAPI() {
         sendApiBtn.disabled = true;
         sendApiBtn.style.background = '#6c757d';
         
-        // Make the API call to our local server (which will proxy to Goodday)
-        const response = await fetch('http://localhost:3001/api/items/move', {
+        // Make the API call to our server (which will proxy to Goodday)
+        const response = await fetch('/api/items/move', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

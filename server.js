@@ -30,11 +30,12 @@ app.put('/move', async (req, res) => {
             });
         }
         
-        const response = await fetch('https://goodday-app-prod.uc.r.appspot.com/api/items/move', {
+        // Make the API call to our server's /move endpoint
+        const response = await fetch('/move', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'x-goodday-api-key': apiKey
+                'x-api-key': apiKey
             },
             body: JSON.stringify(req.body)
         });
@@ -68,6 +69,6 @@ app.get('/health', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:3001`);
-    console.log(`Health check: http://localhost:3001/health`);
+    console.log(`Server running on port ${PORT}`);
+    console.log(`Health check: http://localhost:${PORT}/health`);
 }); 

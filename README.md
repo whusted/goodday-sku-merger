@@ -9,7 +9,7 @@ A simple tool to merge duplicate SKUs in GoodDay.
 npm install
 npm run server
 ```
-Then open: `http://localhost:3001`
+Then open your browser to the URL shown in the terminal.
 
 ### 2. Upload Your CSV File
 - Click "Choose CSV File" or drag your file into the box
@@ -22,8 +22,11 @@ Then open: `http://localhost:3001`
 
 ### 4. Merge Your SKUs
 - Click "Merge SKUs" (it will only work when you have both a file and API key)
-- Wait for it to finish - you'll see "Merged!" when done
-- Copy the results if needed using "Copy Response"
+- Wait for the response to appear below
+- Use the "Copy Response" button to copy the result
+
+## Production Deployment
+This app is deployed on Railway and will work automatically in production.
 
 ## What It Does
 
