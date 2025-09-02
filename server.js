@@ -30,12 +30,12 @@ app.put('/move', async (req, res) => {
             });
         }
         
-        // Make the API call to our server's /move endpoint
-        const response = await fetch('/move', {
+        // Make the API call to GoodDay API
+        const response = await fetch('https://goodday-app-prod.uc.r.appspot.com/api/items/move', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'x-api-key': apiKey
+                'x-goodday-api-key': apiKey
             },
             body: JSON.stringify(req.body)
         });
@@ -51,14 +51,15 @@ app.put('/move', async (req, res) => {
             }
         } else {
             res.status(response.status).json({ 
-                error: `API Error ${response.status}: ${responseData}` 
+                error: `GoodDay API error: ${response.status}`,
+                details: responseData 
             });
         }
-        
     } catch (error) {
-        console.error('Server error:', error);
+        console.error('Error calling GoodDay API:', error);
         res.status(500).json({ 
-            error: `Server error: ${error.message}` 
+            error: 'Internal server error',
+            details: error.message 
         });
     }
 });
