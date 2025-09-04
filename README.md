@@ -10,8 +10,8 @@ A simple tool to merge duplicate SKUs in GoodDay.
 - Use the "Download Sample CSV" button to see the format
 
 ### 2. Enter Your API Key
-- Type your Merchant API key in the "Merchant Key" box
-- The status will show "Key Entered"
+- Type your GoodDay API key in the "Merchant API Key" box
+- The status will show "Key Entered" when you're ready
 
 ### 3. Merge Your SKUs
 - Click "Merge SKUs" (it will only work when you have both a file and API key)
